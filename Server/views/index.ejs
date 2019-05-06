@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- = = = Reddit ejs = = = -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyReddit</title>
+  <link rel="stylesheet" href="../assets/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <p class="main-title">SPACE</p>
+  </div>
+
+  <div class="main">
+    <div class="content">
+      <%for(let i= 0; i < rows.length; i++){%>
+      <!-- data-postID sets the post ID for later use -->
+      <div class="post" data-postID="<%=rows[i].id%>">
+        <div class="rank">
+          <img src="../assets/upvote.png" class="upvote">
+          <p class="score"><%=rows[i].score%></p>
+          <img src="../assets/downvote.png" class="downvote">
+        </div>
+
+        <div class="postContent">
+          <p class="post-title"><strong><%=rows[i].title%></strong></p>
+          <p class="post-url"><%=rows[i].url%></p>
+          <div class="links">
+            <a class="modify" href="">modify</a>
+            <a class="remove" href="">remove</a>
+          </div>
+        </div>
+      </div>
+      <%}%>
+    </div>
+
+    <div class="submit">
+      <div id="postBtn">
+        <p>SUBMIT NEW POST</p>
+      </div>
+      <form>
+        <label for="user">Username</label>
+        <input type="text" id="user" name="user">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+        <label for="url">URL</label>
+        <input type="text" id="url" name="url">
+      </form>
+    </div>
+
+  </div>
+  <script src="../assets/frontend.js"></script>
+</body>
+
+</html>
